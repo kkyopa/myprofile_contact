@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class ContactInquiry extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,8 +33,8 @@ class ContactMail extends Mailable
     {
         return $this
         ->from('kkyopa@gmail.com') // 送信元
-        ->subject('お問い合わせありがとうございます') // メールタイトル
-        ->view('contact.inquiry_mail') // どのテンプレートを呼び出すか
+        ->subject('新しくお問い合わせ内容が届きました') // メールタイトル
+        ->view('contact.content_mail') // どのテンプレートを呼び出すか
         ->with(['inquiry' => $this->inquiry]); // withオプションでセットしたデータをテンプレートへ受け渡す
     }
 }
